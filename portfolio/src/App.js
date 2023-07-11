@@ -33,8 +33,8 @@ function App() {
           </ul>
         </nav>
         <div className='bg-gradient-to-b from-teal-500 
-        rounded-full w-96 h-100 mx-auto overflow-hidden
-        md:h-100 md:w-96 object-cover'>
+        rounded-full w-80 h-80 mx-auto overflow-hidden
+        md:h-100 md:w-100 object-cover'>
           <img src={Image}/>
         </div>
 
