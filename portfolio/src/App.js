@@ -9,15 +9,42 @@ import css from './assets/css.png';
 import javascript from './assets/javascript.png';
 import tailwindcss from './assets/tailwindcss.png';
 import react from './assets/react.png';
+import chat from './assets/chat.png';
+// import getInTouch from './Component/getInTouch';
 
 import { useState } from 'react';
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
 
+  const [FormData, setFormData] = useState({
+    name: '',
+    email: '',
+    phoneNo:'',
+    subject: '',
+    msg: ''
+  })
+
+  const changeHandler = (event) => {
+    setFormData((prevData) => (
+    {
+      ...prevData,
+      [event.target.name]: event.target.value
+    }
+    ))  
+  }
+
+
+  const submithandler = (event) => {
+    event.preventDefault()
+    console.log(FormData)
+  }
+
+
+
   return (
-    <div className= {darkMode ? "dark" : " "}>
-    <div className='bg-white px-10 md:px-20 lg:px-40 dark:bg-gray-900'>
+    <div className= {darkMode ? "dark" : " "} >
+    <div className='bg-white px-10 md:px-20 lg:px-40 dark:bg-gray-900 dark:h-100%'>
       <section className='min-h-screen'>
         <nav className='py-10 mb-12 flex justify-between dark:text-white'>
           <h1 className='text-4xl font-burtons'> Portfolio</h1>
@@ -32,10 +59,10 @@ function App() {
             </li>
           </ul>
         </nav>
-        <div className='bg-gradient-to-b from-teal-500 
-        rounded-full w-80 h-80 mx-auto overflow-hidden
-        md:h-100 md:w-100 object-cover'>
-          <img src={Image}/>
+        <div className='bg-gradient-to-b from-teal-500
+        rounded-full w-80 h-80 mx-auto 
+        md:h-96 md:w-96'>
+          <img src={Image} alt='man-png'/>
         </div>
 
         <div className='text-center p-10'>
@@ -66,113 +93,125 @@ function App() {
           <div className='text-center flex flex-col items-center shadow-lg p-10 rounded-xl my-10 dark:bg-white'>
             <img src={html} width={200} height={200}/>
             <h3 className='text-lg font-medium pt-8 pb-2'>HTML</h3>
-            {/* <p>Creating elegant designs suited for your needs following core
-                design theory. </p>
-            <h4 className='py-4 text-teal-600'>Design tool used</h4>
-            <p className='text-gray-800 py-1'>Photoshop</p>
-            <p className='text-gray-800 py-1'>Photoshop</p> */}
           </div>
 
 
           <div className='text-center flex flex-col items-center shadow-lg p-10 rounded-xl my-10 dark:bg-white'>
             <img src={css} width={200} height={200}/>
             <h3 className='text-lg font-medium pt-8 pb-2'> CSS</h3>
-            {/* <p>Creating elegant designs suited for your needs following core
-                design theory.</p>
-            <h4 className='py-4 text-teal-600'>Design tool used</h4>
-            <p className='text-gray-800 py-1'>Photoshop</p>
-            <p className='text-gray-800 py-1'>Photoshop</p> */}
           </div>
 
           <div className='text-center flex flex-col items-center shadow-lg p-10 rounded-xl my-10 dark:bg-white'>
             <img src={javascript} width={200} height={200}/>
             <h3 className='text-lg font-medium pt-8 pb-2'>JavaScript</h3>
-            {/* <p>Creating elegant designs suited for your needs following core
-                design theory. </p>
-            <h4 className='py-4 text-teal-600'>Design tool used</h4>
-            <p className='text-gray-800 py-1'>Photoshop</p>
-            <p className='text-gray-800 py-1'>Photoshop</p> */}
           </div>
 
           <div className='text-center flex flex-col items-center shadow-lg p-10 rounded-xl my-10 dark:bg-white '>
             <img src={react} width={200} height={200} />
             <h3 className='text-lg font-medium pt-8 pb-2'>React Js</h3>
-            {/* <p>Creating elegant designs suited for your needs following core
-                design theory. </p>
-            <h4 className='py-4 text-teal-600'>Design tool used</h4>
-            <p className='text-gray-800 py-1'>Photoshop</p>
-            <p className='text-gray-800 py-1'>Photoshop</p> */}
           </div>
           <div className='text-center flex flex-col items-center shadow-lg p-10 rounded-xl my-10 dark:bg-white '>
             <img src={tailwindcss} width={200} height={200} />
             <h3 className='text-lg font-medium pt-8 pb-2'>Tailwind CSS</h3>
-            {/* <p>Creating elegant designs suited for your needs following core
-                design theory. </p>
-            <h4 className='py-4 text-teal-600'>Design tool used</h4>
-            <p className='text-gray-800 py-1'>Photoshop</p>
-            <p className='text-gray-800 py-1'>Photoshop</p> */}
           </div>
         </div>
       </section>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      {/* <section>
+      <section>
         <div>
-          <h3 className='text-3xl py-1 dark:text-white'>Portfolio</h3>
-          <p className='text-md py-2 leading-8 text-gray-800 dark:text-gray-200'>
-            do eiusmod tempor incididunt ut labore et dolore magna 
-            aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-            ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-             Duis aute irure dolor in reprehenderit in voluptate velit 
-             esse cillum dolore eu fugiat nulla p
-          </p>
+          <h3 className='text-3xl py-1 dark:text-white'>Contact </h3>
         </div>
+         
+            <div className='flex justify-center items-center'>
+              <img src={chat} alt='chat' className='w-2/6 h-1/5 ' />
+            <div className=' w-full shadow-lg p-8 rounded-xl my-8 dark:bg-white'>
+            <h3 className='text-4xl py-2 text-teal-600 font-medium
+          md:text-6xl dark:text-teal-400 text-center'>Get In Touch</h3>
+            
+            <form onSubmit={submithandler} className="max-w-md mx-auto mt-8">
+        <div className="mb-4">
+          <label className="block text-gray-700 text-l mb-2" htmlFor="name">
+            Name
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={FormData.name}
+            onChange={changeHandler}
+            className="w-full border border-gray-400 p-2 rounded-md"
 
-        <div className='flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap'>
-          <div className='basis-1/3 flex-1 '>
-            <img src={web1} className='rounded-lg object-cover ' 
-            width={'100%'} height={'100%'} />
-          </div>
-          <div className='basis-1/3 flex-1'>
-            <img src={web2} className='rounded-lg object-cover ' 
-            width={'100%'} height={'100%'} />
-          </div>
-          <div className='basis-1/3 flex-1'>
-            <img src={web3} className='rounded-lg object-cover ' 
-            width={'100%'} height={'100%'} />
-          </div>
-          <div className='basis-1/3 flex-1'>
-            <img src={web4} className='rounded-lg object-cover ' 
-            width={'100%'} height={'100%'} />
-          </div>
-          <div className='basis-1/3 flex-1'>
-            <img src={web5} className='rounded-lg object-cover ' 
-            width={'100%'} height={'100%'} />
-          </div>
-          <div className='basis-1/3 flex-1'>
-            <img src={web6} className='rounded-lg object-cover ' 
-            width={'100%'} height={'100%'} />
-          </div>
+          />
         </div>
-      </section> */}
+        <div className="mb-4">
+          <label className="block text-gray-700 text-l mb-2" htmlFor="phoneNumber">
+            Phone Number
+          </label>
+          <input
+            type="tel"
+            id="phoneNumber"
+            name="phoneNumber"
+            value={FormData.phoneNumber}
+            onChange={changeHandler}
+            className="w-full border border-gray-400 p-2 rounded-md"
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-l mb-2" htmlFor="email">
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={FormData.email}
+            onChange={changeHandler}
+            className="w-full border border-gray-400 p-2 rounded-md"
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-l mb-2" htmlFor="subject">
+            Subject
+          </label>
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            value={FormData.subject}
+            onChange={changeHandler}
+            className="w-full border border-gray-400 p-2 rounded-md"
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-l mb-2" htmlFor="message">
+            Message
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            value={FormData.message}
+            onChange={changeHandler}
+            rows="4"
+            className="w-full border border-gray-400 p-2 rounded-md"
+          />
+        </div>
+        <div className='flex items-center flex-col'>
+          <button
+            type="submit"
+            className="bg-gradient-to-r from-cyan-500 to-teal-500
+            text-white px-4 py-2 rounded-md ml-8"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+            
+        </div>
+            </div>
+            
+        
+      </section>
     </div>
     </div>
   );
